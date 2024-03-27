@@ -4,7 +4,7 @@ project:
 
 website:
   title: "crickleaze.cc"
-  favicon: "crickheart.png"
+  favicon: "assets/crickheart.png"
   navbar:
     left:
       - href: index.qmd
@@ -19,6 +19,4 @@ format:
 
 editor: visual
 
-include-in-header:
-  text: <link rel="shortcut icon" href="crickheart.png" />
 
