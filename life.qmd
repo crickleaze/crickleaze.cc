@@ -13,4 +13,5 @@ readRDS("recent.rds") -> recent
 library(leaflet)
 map_polylines(recent)
 ```
-<br>(Activities centred more than 100km from home are removed for reasons of security.)
+<br>
+(Activities centred more than 100km from home are removed for reasons of security.)
