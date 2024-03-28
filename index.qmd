@@ -4,7 +4,7 @@ title: "Useful intelligence"
 
 I am Ian Green and this is my work website. I am an independent consultant offering hands-on, in-depth, non-generic analysis of the use of data science and technology in complex environments. I am also an advisor to Adaptive, the real-time trading experts.\
 \
-Outside of financial services, I run the [crickles website](https://crickles.casa), which offers insights to athletes through algorithmic analysis of their heart rate data during exercise. I am also an academic partner to Warwick University where I have supervised postgraduate students on data-rich projects in the field of endurance exercise.\
+Outside of financial services, I run the [crickles website](https://crickles.casa), which offers insights to athletes through algorithmic analysis of their heart rate data during exercise. I have also been an academic partner to Warwick University where I supervised postgraduate students on data-rich projects in the field of endurance exercise.\
 \
 In my career I've held numerous roles centred on the mathematics and technology of trading and risk management. I've worked on both sides of the fence: as a designer and provider of software, and running substantial trading books that use fully automated routines for pricing and risk management.\
 \
