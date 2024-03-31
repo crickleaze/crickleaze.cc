@@ -27,7 +27,7 @@ jobs:
         with:
           r-version: '4.1.0'  # Adjust as necessary
 
-       - name: Install packages
+      - name: Install packages
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
