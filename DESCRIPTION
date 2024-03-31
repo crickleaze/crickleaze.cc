@@ -1,0 +1,8 @@
+Package: crickleaze.cc
+Version: 0.1.0
+Imports:
+    tidyverse,
+    leaflet,
+    googlePolylines
+Suggests:
+    testthat
