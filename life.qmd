@@ -4,14 +4,14 @@ title: "Life"
 
 Most of the books that I've read this century are listed [here](https://crickles-public.s3.eu-west-1.amazonaws.com/books.html "Ian's book list").
 
-Here's where I've been walking and cycling recently:
+Here's where I've been walking and cycling recently (cycling in blue, walks in pink):
 
-``` {r}
+```{r}
 #| echo: false
 source('map_utilities.R')
-readRDS("recent.rds") -> recent
+readRDS("recent_2.rds") -> recent
 library(leaflet)
 map_polylines(recent)
 ```
-<br>
-(Activities centred more than 100km from home are removed for reasons of security.)
+
+<br> (Activities centred more than 100km from home are removed for reasons of security.)
