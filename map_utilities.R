@@ -12,8 +12,13 @@ map_polylines <- function(polylines) {
   base <- leaflet() |> addTiles()
   for (i in 1:num_lines) {
     polyline_to_df(unlist(polylines[i, "map.polyline"])) -> coords
+    if (polylines[i, "type"] == "Ride") {
+      this_col <- "dodgerblue"
+    } else {
+      this_col <- "hotpink"
+    }
     # message("km away ", polylines[i, "km_away"])
-    base |> addPolylines(lng = coords$lon, lat = coords$lat, color = "dodgerblue") -> base
+    base |> addPolylines(lng = coords$lon, lat = coords$lat, color = this_col) -> base
   }
   return(base)
 }
