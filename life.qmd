@@ -9,7 +9,7 @@ Here's where I've been walking and cycling recently (cycling in blue, walks in p
 ```{r}
 #| echo: false
 source('map_utilities.R')
-readRDS("recent_2.rds") -> recent
+readRDS("recent_3.rds") -> recent
 library(leaflet)
 map_polylines(recent)
 ```
