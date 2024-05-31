@@ -1,9 +1,38 @@
-# polyline_to_df ------------------------------------------------
-polyline_to_df <- function(polyline) {
-  library(googlePolylines)
-  decode(polyline) -> dp
-  return(dp[[1]])
+# create recent file ------------------------------------------------
+
+update_recent <- function(check_today = T) {
+# reads in pdb file and writes out the recent file needed for crickleaze.cc  
+# after doing this need to run ./render-backup.sh in Terminal and then commit/push  
+  
+  pdb_filename <- "~/crickles/definitive_files/acts/pending_df_backup.rds"
+  recent_filename <- "recent_3.rds"
+  if (file.exists(pdb_filename)) {
+    info <- file.info(pdb_filename)
+    last_modified <- info$mtime
+    if (check_today && as.Date(last_modified) != Sys.Date()) {
+      stop("Update pdb file")
+    }
+  } else {
+    stop("The pdb file does not exist.")
+  }
+  
+  readRDS(pdb_filename) |> 
+    pending_to_results() |> 
+    saveRDS(file = recent_filename)
 }
+
+# doesn't reference existing results
+pending_to_results <- function(pending_df) {
+  library(tidyverse)
+  pending_df |> 
+    filter(athlete.id == 301194, map.polyline != "") |> 
+    rowwise() |> 
+    mutate(km_away = how_far_from_home(map.polyline)) |> 
+    filter(km_away <= 100) |> 
+    select(type, map.polyline, km_away) -> results
+  return(results)
+}
+
 
 # map_polylines -------------------------------------------------
 map_polylines <- function(polylines) {
@@ -31,7 +60,11 @@ how_far_from_home <- function(polyline) {
   return(dist)
 }
 
-# haversine -----------------------------------------------------------
+polyline_to_df <- function(polyline) {
+  library(googlePolylines)
+  decode(polyline) -> dp
+  return(dp[[1]])
+}
 
 haversine <- function(lat1, lon1, lat2, lon2) {
   # Earth's radius in kilometers
@@ -51,17 +84,4 @@ haversine <- function(lat1, lon1, lat2, lon2) {
   d <- R * c
   
   return(d)
-}
-
-# pending_df to results ---------------------------------------
-
-pending_to_results <- function(pending_df) {
-  library(tidyverse)
-  pending_df |> 
-    filter(athlete.id == 301194, map.polyline != "") |> 
-    rowwise() |> 
-    mutate(km_away = how_far_from_home(map.polyline)) |> 
-    filter(km_away <= 100) |> 
-    select(type, map.polyline, km_away) -> results
-  return(results)
 }
