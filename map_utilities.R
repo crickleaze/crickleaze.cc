@@ -1,6 +1,6 @@
 # create recent file ------------------------------------------------
 
-update_recent <- function(check_today = T) {
+update_recent <- function(check_today = T, do_shell = T) {
 # reads in pdb file and writes out the recent file needed for crickleaze.cc  
 # after doing this need to run ./render-backup.sh in Terminal and then commit/push  
   
@@ -19,6 +19,11 @@ update_recent <- function(check_today = T) {
   readRDS(pdb_filename) |> 
     pending_to_results() |> 
     saveRDS(file = recent_filename)
+  
+  if (do_shell) {
+    message("Executing shell script")
+    system("./render-backup.sh")
+  }
 }
 
 # doesn't reference existing results
