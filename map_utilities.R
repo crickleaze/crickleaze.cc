@@ -2,7 +2,8 @@
 
 update_recent <- function(check_today = T, do_shell = T) {
 # reads in pdb file and writes out the recent file needed for crickleaze.cc  
-# after doing this need to run ./render-backup.sh in Terminal and then commit/push  
+# after doing this optionally runs ./render-backup.sh 
+# only then need to commit/push  
   
   pdb_filename <- "~/crickles/definitive_files/acts/pending_df_backup.rds"
   recent_filename <- "recent_3.rds"
